@@ -1,0 +1,339 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "george.bluth@reqres.in",
+      "first_name": "George",
+      "last_name": "Bluth",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "category": "photography",
+      "tags": [
+        "portrait",
+        "professional",
+        "studio"
+      ],
+      "author": "George Bluth",
+      "likes": 43,
+      "description": "Professional photographer specializing in portrait and studio photography. With over 10 years of experience, George creates stunning visual narratives that capture the essence of his subjects."
+    },
+    {
+      "id": 2,
+      "email": "janet.weaver@reqres.in",
+      "first_name": "Janet",
+      "last_name": "Weaver",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "category": "nature",
+      "tags": [
+        "landscape",
+        "nature",
+        "outdoor"
+      ],
+      "author": "Janet Weaver",
+      "likes": 38,
+      "description": "Nature enthusiast and landscape photographer. Janet travels the world to capture breathtaking natural scenes and wildlife in their pristine environments."
+    },
+    {
+      "id": 3,
+      "email": "emma.wong@reqres.in",
+      "first_name": "Emma",
+      "last_name": "Wong",
+      "avatar": "https://reqres.in/img/faces/3-image.jpg",
+      "category": "art",
+      "tags": [
+        "abstract",
+        "creative",
+        "modern"
+      ],
+      "author": "Emma Wong",
+      "likes": 56,
+      "description": "Contemporary artist focusing on abstract and modern art forms. Emma's work explores the intersection between traditional techniques and digital innovation."
+    },
+    {
+      "id": 4,
+      "email": "eve.holt@reqres.in",
+      "first_name": "Eve",
+      "last_name": "Holt",
+      "avatar": "https://reqres.in/img/faces/4-image.jpg",
+      "category": "photography",
+      "tags": [
+        "street",
+        "urban",
+        "documentary"
+      ],
+      "author": "Eve Holt",
+      "likes": 29,
+      "description": "Street photographer documenting urban life and culture. Eve's candid shots capture the authentic moments of city living and human connections."
+    },
+    {
+      "id": 5,
+      "email": "charles.morris@reqres.in",
+      "first_name": "Charles",
+      "last_name": "Morris",
+      "avatar": "https://reqres.in/img/faces/5-image.jpg",
+      "category": "nature",
+      "tags": [
+        "wildlife",
+        "macro",
+        "conservation"
+      ],
+      "author": "Charles Morris",
+      "likes": 67,
+      "description": "Wildlife photographer and conservation advocate. Charles specializes in macro photography and works to raise awareness about endangered species through his art."
+    },
+    {
+      "id": 6,
+      "email": "tracey.ramos@reqres.in",
+      "first_name": "Tracey",
+      "last_name": "Ramos",
+      "avatar": "https://reqres.in/img/faces/6-image.jpg",
+      "category": "art",
+      "tags": [
+        "painting",
+        "traditional",
+        "portrait"
+      ],
+      "author": "Tracey Ramos",
+      "likes": 45,
+      "description": "Traditional painter with a focus on realistic portraits. Tracey combines classical techniques with contemporary subjects to create timeless artworks."
+    },
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg",
+      "category": "photography",
+      "tags": [
+        "architecture",
+        "geometric",
+        "minimal"
+      ],
+      "author": "Michael Lawson",
+      "likes": 33,
+      "description": "Architectural photographer with an eye for geometric compositions and minimal design. Michael's work highlights the beauty of modern and historic architecture."
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg",
+      "category": "nature",
+      "tags": [
+        "botanical",
+        "flowers",
+        "garden"
+      ],
+      "author": "Lindsay Ferguson",
+      "likes": 51,
+      "description": "Botanical photographer specializing in flower and garden photography. Lindsay captures the delicate beauty of plants and their intricate details."
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg",
+      "category": "art",
+      "tags": [
+        "sculpture",
+        "3d",
+        "installation"
+      ],
+      "author": "Tobias Funke",
+      "likes": 24,
+      "description": "Sculptor and installation artist creating immersive 3D experiences. Tobias explores themes of space, form, and human interaction through his contemporary sculptures."
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg",
+      "category": "photography",
+      "tags": [
+        "sports",
+        "action",
+        "dynamic"
+      ],
+      "author": "Byron Fields",
+      "likes": 72,
+      "description": "Sports photographer capturing high-energy action shots and athletic moments. Byron's dynamic compositions freeze the excitement and intensity of competitive sports."
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg",
+      "category": "nature",
+      "tags": [
+        "ocean",
+        "underwater",
+        "marine"
+      ],
+      "author": "George Edwards",
+      "likes": 18,
+      "description": "Underwater photographer exploring the mysteries of marine life. George's work showcases the hidden beauty of ocean ecosystems and aquatic creatures."
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg",
+      "category": "art",
+      "tags": [
+        "digital",
+        "illustration",
+        "concept"
+      ],
+      "author": "Rachel Howell",
+      "likes": 93,
+      "description": "Digital illustrator and concept artist creating fantastical worlds and characters. Rachel's imaginative artwork blends traditional art principles with cutting-edge digital techniques."
+    },
+    {
+      "id": 13,
+      "email": "david.chen@reqres.in",
+      "first_name": "David",
+      "last_name": "Chen",
+      "avatar": "https://reqres.in/img/faces/1-image.jpg",
+      "category": "photography",
+      "tags": [
+        "fashion",
+        "editorial",
+        "commercial"
+      ],
+      "author": "David Chen",
+      "likes": 61,
+      "description": "Fashion and editorial photographer working with top brands and magazines. David's sophisticated style and attention to detail create compelling visual stories in commercial photography."
+    },
+    {
+      "id": 14,
+      "email": "sophia.martinez@reqres.in",
+      "first_name": "Sophia",
+      "last_name": "Martinez",
+      "avatar": "https://reqres.in/img/faces/2-image.jpg",
+      "category": "nature",
+      "tags": [
+        "astronomy",
+        "night",
+        "stars"
+      ],
+      "author": "Sophia Martinez",
+      "likes": 84,
+      "description": "Astrophotographer capturing the wonders of the night sky. Sophia specializes in long-exposure photography of celestial objects, bringing the cosmos closer to earth."
+    },
+    {
+      "id": 15,
+      "email": "james.wilson@reqres.in",
+      "first_name": "James",
+      "last_name": "Wilson",
+      "avatar": "https://reqres.in/img/faces/3-image.jpg",
+      "category": "art",
+      "tags": [
+        "mixed-media",
+        "experimental",
+        "contemporary"
+      ],
+      "author": "James Wilson",
+      "likes": 37,
+      "description": "Mixed-media artist pushing the boundaries of contemporary art. James combines various materials and techniques to create thought-provoking pieces that challenge conventional artistic norms."
+    },
+    {
+      "id": 16,
+      "email": "maria.garcia@reqres.in",
+      "first_name": "Maria",
+      "last_name": "Garcia",
+      "avatar": "https://reqres.in/img/faces/4-image.jpg",
+      "category": "photography",
+      "tags": [
+        "wedding",
+        "celebration",
+        "emotion"
+      ],
+      "author": "Maria Garcia",
+      "likes": 76,
+      "description": "Wedding photographer specializing in capturing emotional moments and celebrations. Maria's warm and candid style preserves the joy and romance of special occasions."
+    },
+    {
+      "id": 17,
+      "email": "alex.thompson@reqres.in",
+      "first_name": "Alex",
+      "last_name": "Thompson",
+      "avatar": "https://reqres.in/img/faces/5-image.jpg",
+      "category": "nature",
+      "tags": [
+        "mountain",
+        "adventure",
+        "extreme"
+      ],
+      "author": "Alex Thompson",
+      "likes": 55,
+      "description": "Adventure photographer documenting extreme outdoor activities and mountain expeditions. Alex's fearless approach captures the raw beauty and danger of nature's most challenging environments."
+    },
+    {
+      "id": 18,
+      "email": "lisa.brown@reqres.in",
+      "first_name": "Lisa",
+      "last_name": "Brown",
+      "avatar": "https://reqres.in/img/faces/6-image.jpg",
+      "category": "art",
+      "tags": [
+        "ceramics",
+        "pottery",
+        "handmade"
+      ],
+      "author": "Lisa Brown",
+      "likes": 42,
+      "description": "Ceramic artist creating functional and decorative pottery pieces. Lisa's handcrafted works celebrate traditional techniques while incorporating modern aesthetic sensibilities."
+    },
+    {
+      "id": 19,
+      "email": "robert.davis@reqres.in",
+      "first_name": "Robert",
+      "last_name": "Davis",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg",
+      "category": "photography",
+      "tags": [
+        "vintage",
+        "film",
+        "nostalgic"
+      ],
+      "author": "Robert Davis",
+      "likes": 28,
+      "description": "Film photographer working exclusively with vintage cameras and analog processes. Robert's nostalgic approach creates timeless images that celebrate the craft of traditional photography."
+    },
+    {
+      "id": 20,
+      "email": "amanda.miller@reqres.in",
+      "first_name": "Amanda",
+      "last_name": "Miller",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg",
+      "category": "nature",
+      "tags": [
+        "forest",
+        "trees",
+        "ecosystem"
+      ],
+      "author": "Amanda Miller",
+      "likes": 69,
+      "description": "Forest photographer and environmental educator. Amanda's work focuses on showcasing forest ecosystems and promoting awareness about conservation and sustainable forestry practices."
+    },
+    {
+      "first_name": "An",
+      "last_name": "Lê Đại",
+      "email": "ledaian22@gmail.com",
+      "avatar": "https://placehold.co/600x400",
+      "category": "nature",
+      "tags": [
+        "1",
+        "2"
+      ],
+      "author": "Adaw",
+      "description": "adwd",
+      "likes": 0,
+      "id": 1760471130367
+    }
+  ]
+}

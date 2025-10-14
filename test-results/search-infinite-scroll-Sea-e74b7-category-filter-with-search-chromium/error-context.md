@@ -1,0 +1,144 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Explore Gallery" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: Explore Gallery
+      - navigation [ref=e6]:
+        - link "Explore" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8]
+          - generic [ref=e13]: Explore
+        - link "Create Item" [ref=e14] [cursor=pointer]:
+          - /url: /create
+          - img [ref=e15]
+          - generic [ref=e16]: Create Item
+      - button "Toggle theme" [ref=e18]:
+        - img
+        - generic [ref=e19]: Toggle theme
+  - main [ref=e20]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "Explore Gallery" [level=1] [ref=e24]
+        - paragraph [ref=e25]: Discover amazing people and their profiles
+      - generic [ref=e26]:
+        - generic [ref=e28]:
+          - textbox "Search by name, email or author..." [ref=e30]
+          - combobox [active] [ref=e32]:
+            - generic: Art
+            - img
+        - generic [ref=e34]:
+          - generic [ref=e35]: "Sort by:"
+          - combobox [ref=e36]:
+            - generic: Trending
+            - img
+      - generic [ref=e37]:
+        - generic [ref=e38] [cursor=pointer]:
+          - img "Emma Wong" [ref=e41]
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "Emma Wong" [level=3] [ref=e44]
+              - paragraph [ref=e45]: by Emma Wong
+            - paragraph [ref=e46]: Contemporary artist focusing on abstract and modern art forms. Emma's work explores the intersection between traditional techniques and digital innovation.
+            - generic [ref=e47]:
+              - generic [ref=e48]: art
+              - generic [ref=e49]:
+                - img [ref=e50]
+                - text: "56"
+            - generic [ref=e52]:
+              - generic [ref=e53]: abstract
+              - generic [ref=e54]: creative
+              - generic [ref=e55]: "+1"
+        - generic [ref=e56] [cursor=pointer]:
+          - img "Tracey Ramos" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "Tracey Ramos" [level=3] [ref=e62]
+              - paragraph [ref=e63]: by Tracey Ramos
+            - paragraph [ref=e64]: Traditional painter with a focus on realistic portraits. Tracey combines classical techniques with contemporary subjects to create timeless artworks.
+            - generic [ref=e65]:
+              - generic [ref=e66]: art
+              - generic [ref=e67]:
+                - img [ref=e68]
+                - text: "45"
+            - generic [ref=e70]:
+              - generic [ref=e71]: painting
+              - generic [ref=e72]: traditional
+              - generic [ref=e73]: "+1"
+        - generic [ref=e74] [cursor=pointer]:
+          - img "Tobias Funke" [ref=e77]
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - heading "Tobias Funke" [level=3] [ref=e80]
+              - paragraph [ref=e81]: by Tobias Funke
+            - paragraph [ref=e82]: Sculptor and installation artist creating immersive 3D experiences. Tobias explores themes of space, form, and human interaction through his contemporary sculptures.
+            - generic [ref=e83]:
+              - generic [ref=e84]: art
+              - generic [ref=e85]:
+                - img [ref=e86]
+                - text: "24"
+            - generic [ref=e88]:
+              - generic [ref=e89]: sculpture
+              - generic [ref=e90]: 3d
+              - generic [ref=e91]: "+1"
+        - generic [ref=e92] [cursor=pointer]:
+          - img "Rachel Howell" [ref=e95]
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - heading "Rachel Howell" [level=3] [ref=e98]
+              - paragraph [ref=e99]: by Rachel Howell
+            - paragraph [ref=e100]: Digital illustrator and concept artist creating fantastical worlds and characters. Rachel's imaginative artwork blends traditional art principles with cutting-edge digital techniques.
+            - generic [ref=e101]:
+              - generic [ref=e102]: art
+              - generic [ref=e103]:
+                - img [ref=e104]
+                - text: "93"
+            - generic [ref=e106]:
+              - generic [ref=e107]: digital
+              - generic [ref=e108]: illustration
+              - generic [ref=e109]: "+1"
+        - generic [ref=e110] [cursor=pointer]:
+          - img "James Wilson" [ref=e113]
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - heading "James Wilson" [level=3] [ref=e116]
+              - paragraph [ref=e117]: by James Wilson
+            - paragraph [ref=e118]: Mixed-media artist pushing the boundaries of contemporary art. James combines various materials and techniques to create thought-provoking pieces that challenge conventional artistic norms.
+            - generic [ref=e119]:
+              - generic [ref=e120]: art
+              - generic [ref=e121]:
+                - img [ref=e122]
+                - text: "37"
+            - generic [ref=e124]:
+              - generic [ref=e125]: mixed-media
+              - generic [ref=e126]: experimental
+              - generic [ref=e127]: "+1"
+        - generic [ref=e128] [cursor=pointer]:
+          - img "Lisa Brown" [ref=e131]
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - heading "Lisa Brown" [level=3] [ref=e134]
+              - paragraph [ref=e135]: by Lisa Brown
+            - paragraph [ref=e136]: Ceramic artist creating functional and decorative pottery pieces. Lisa's handcrafted works celebrate traditional techniques while incorporating modern aesthetic sensibilities.
+            - generic [ref=e137]:
+              - generic [ref=e138]: art
+              - generic [ref=e139]:
+                - img [ref=e140]
+                - text: "42"
+            - generic [ref=e142]:
+              - generic [ref=e143]: ceramics
+              - generic [ref=e144]: pottery
+              - generic [ref=e145]: "+1"
+      - paragraph [ref=e148]: You've reached the end!
+  - generic [ref=e149]:
+    - img [ref=e151]
+    - button "Open Tanstack query devtools" [ref=e199] [cursor=pointer]:
+      - img [ref=e200]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e253] [cursor=pointer]:
+    - img [ref=e254]
+  - alert [ref=e257]
+```

@@ -1,0 +1,239 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Explore Gallery" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: Explore Gallery
+      - navigation [ref=e6]:
+        - link "Explore" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8]
+          - generic [ref=e13]: Explore
+        - link "Create Item" [ref=e14] [cursor=pointer]:
+          - /url: /create
+          - img [ref=e15]
+          - generic [ref=e18]: Create Item
+      - button "Toggle theme" [ref=e20]:
+        - img
+        - generic [ref=e21]: Toggle theme
+  - main [ref=e22]:
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - heading "Explore Gallery" [level=1] [ref=e26]
+        - paragraph [ref=e27]: Discover amazing people and their profiles
+      - generic [ref=e28]:
+        - generic [ref=e30]:
+          - textbox "Search by name, email or author..." [ref=e32]
+          - combobox [ref=e34]:
+            - generic: All Categories
+            - img
+        - generic [ref=e36]:
+          - generic [ref=e37]: "Sort by:"
+          - combobox [ref=e38]:
+            - generic: Trending
+            - img
+      - generic [ref=e39]:
+        - generic [ref=e40] [cursor=pointer]:
+          - img "George Bluth" [ref=e43]
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - heading "George Bluth" [level=3] [ref=e46]
+              - paragraph [ref=e47]: by George Bluth
+            - paragraph [ref=e48]: Professional photographer specializing in portrait and studio photography. With over 10 years of experience, George creates stunning visual narratives that capture the essence of his subjects.
+            - generic [ref=e49]:
+              - generic [ref=e50]: photography
+              - generic [ref=e51]:
+                - img [ref=e52]
+                - text: "43"
+            - generic [ref=e54]:
+              - generic [ref=e55]: portrait
+              - generic [ref=e56]: professional
+              - generic [ref=e57]: "+1"
+        - generic [ref=e58] [cursor=pointer]:
+          - img "Janet Weaver" [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - heading "Janet Weaver" [level=3] [ref=e64]
+              - paragraph [ref=e65]: by Janet Weaver
+            - paragraph [ref=e66]: Nature enthusiast and landscape photographer. Janet travels the world to capture breathtaking natural scenes and wildlife in their pristine environments.
+            - generic [ref=e67]:
+              - generic [ref=e68]: nature
+              - generic [ref=e69]:
+                - img [ref=e70]
+                - text: "38"
+            - generic [ref=e72]:
+              - generic [ref=e73]: landscape
+              - generic [ref=e74]: nature
+              - generic [ref=e75]: "+1"
+        - generic [ref=e76] [cursor=pointer]:
+          - img "Emma Wong" [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - heading "Emma Wong" [level=3] [ref=e82]
+              - paragraph [ref=e83]: by Emma Wong
+            - paragraph [ref=e84]: Contemporary artist focusing on abstract and modern art forms. Emma's work explores the intersection between traditional techniques and digital innovation.
+            - generic [ref=e85]:
+              - generic [ref=e86]: art
+              - generic [ref=e87]:
+                - img [ref=e88]
+                - text: "56"
+            - generic [ref=e90]:
+              - generic [ref=e91]: abstract
+              - generic [ref=e92]: creative
+              - generic [ref=e93]: "+1"
+        - generic [ref=e94] [cursor=pointer]:
+          - img "Eve Holt" [ref=e97]
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - heading "Eve Holt" [level=3] [ref=e100]
+              - paragraph [ref=e101]: by Eve Holt
+            - paragraph [ref=e102]: Street photographer documenting urban life and culture. Eve's candid shots capture the authentic moments of city living and human connections.
+            - generic [ref=e103]:
+              - generic [ref=e104]: photography
+              - generic [ref=e105]:
+                - img [ref=e106]
+                - text: "29"
+            - generic [ref=e108]:
+              - generic [ref=e109]: street
+              - generic [ref=e110]: urban
+              - generic [ref=e111]: "+1"
+        - generic [ref=e112] [cursor=pointer]:
+          - img "Charles Morris" [ref=e115]
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - heading "Charles Morris" [level=3] [ref=e118]
+              - paragraph [ref=e119]: by Charles Morris
+            - paragraph [ref=e120]: Wildlife photographer and conservation advocate. Charles specializes in macro photography and works to raise awareness about endangered species through his art.
+            - generic [ref=e121]:
+              - generic [ref=e122]: nature
+              - generic [ref=e123]:
+                - img [ref=e124]
+                - text: "67"
+            - generic [ref=e126]:
+              - generic [ref=e127]: wildlife
+              - generic [ref=e128]: macro
+              - generic [ref=e129]: "+1"
+        - generic [ref=e130] [cursor=pointer]:
+          - img "Tracey Ramos" [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - heading "Tracey Ramos" [level=3] [ref=e136]
+              - paragraph [ref=e137]: by Tracey Ramos
+            - paragraph [ref=e138]: Traditional painter with a focus on realistic portraits. Tracey combines classical techniques with contemporary subjects to create timeless artworks.
+            - generic [ref=e139]:
+              - generic [ref=e140]: art
+              - generic [ref=e141]:
+                - img [ref=e142]
+                - text: "45"
+            - generic [ref=e144]:
+              - generic [ref=e145]: painting
+              - generic [ref=e146]: traditional
+              - generic [ref=e147]: "+1"
+        - generic [ref=e148] [cursor=pointer]:
+          - img "Michael Lawson" [ref=e151]
+          - generic [ref=e152]:
+            - generic [ref=e153]:
+              - heading "Michael Lawson" [level=3] [ref=e154]
+              - paragraph [ref=e155]: by Michael Lawson
+            - paragraph [ref=e156]: Architectural photographer with an eye for geometric compositions and minimal design. Michael's work highlights the beauty of modern and historic architecture.
+            - generic [ref=e157]:
+              - generic [ref=e158]: photography
+              - generic [ref=e159]:
+                - img [ref=e160]
+                - text: "33"
+            - generic [ref=e162]:
+              - generic [ref=e163]: architecture
+              - generic [ref=e164]: geometric
+              - generic [ref=e165]: "+1"
+        - generic [ref=e166] [cursor=pointer]:
+          - img "Lindsay Ferguson" [ref=e169]
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - heading "Lindsay Ferguson" [level=3] [ref=e172]
+              - paragraph [ref=e173]: by Lindsay Ferguson
+            - paragraph [ref=e174]: Botanical photographer specializing in flower and garden photography. Lindsay captures the delicate beauty of plants and their intricate details.
+            - generic [ref=e175]:
+              - generic [ref=e176]: nature
+              - generic [ref=e177]:
+                - img [ref=e178]
+                - text: "51"
+            - generic [ref=e180]:
+              - generic [ref=e181]: botanical
+              - generic [ref=e182]: flowers
+              - generic [ref=e183]: "+1"
+        - generic [ref=e184] [cursor=pointer]:
+          - img "Tobias Funke" [ref=e188]
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - heading "Tobias Funke" [level=3] [ref=e191]
+              - paragraph [ref=e192]: by Tobias Funke
+            - paragraph [ref=e193]: Sculptor and installation artist creating immersive 3D experiences. Tobias explores themes of space, form, and human interaction through his contemporary sculptures.
+            - generic [ref=e194]:
+              - generic [ref=e195]: art
+              - generic [ref=e196]:
+                - img [ref=e197]
+                - text: "24"
+            - generic [ref=e199]:
+              - generic [ref=e200]: sculpture
+              - generic [ref=e201]: 3d
+              - generic [ref=e202]: "+1"
+        - generic [ref=e203] [cursor=pointer]:
+          - img "Byron Fields" [ref=e207]
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - heading "Byron Fields" [level=3] [ref=e210]
+              - paragraph [ref=e211]: by Byron Fields
+            - paragraph [ref=e212]: Sports photographer capturing high-energy action shots and athletic moments. Byron's dynamic compositions freeze the excitement and intensity of competitive sports.
+            - generic [ref=e213]:
+              - generic [ref=e214]: photography
+              - generic [ref=e215]:
+                - img [ref=e216]
+                - text: "72"
+            - generic [ref=e218]:
+              - generic [ref=e219]: sports
+              - generic [ref=e220]: action
+              - generic [ref=e221]: "+1"
+        - generic [ref=e222] [cursor=pointer]:
+          - img "George Edwards" [ref=e226]
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - heading "George Edwards" [level=3] [ref=e229]
+              - paragraph [ref=e230]: by George Edwards
+            - paragraph [ref=e231]: Underwater photographer exploring the mysteries of marine life. George's work showcases the hidden beauty of ocean ecosystems and aquatic creatures.
+            - generic [ref=e232]:
+              - generic [ref=e233]: nature
+              - generic [ref=e234]:
+                - img [ref=e235]
+                - text: "18"
+            - generic [ref=e237]:
+              - generic [ref=e238]: ocean
+              - generic [ref=e239]: underwater
+              - generic [ref=e240]: "+1"
+        - generic [ref=e241] [cursor=pointer]:
+          - img "Rachel Howell" [ref=e245]
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - heading "Rachel Howell" [level=3] [ref=e248]
+              - paragraph [ref=e249]: by Rachel Howell
+            - paragraph [ref=e250]: Digital illustrator and concept artist creating fantastical worlds and characters. Rachel's imaginative artwork blends traditional art principles with cutting-edge digital techniques.
+            - generic [ref=e251]:
+              - generic [ref=e252]: art
+              - generic [ref=e253]:
+                - img [ref=e254]
+                - text: "93"
+            - generic [ref=e256]:
+              - generic [ref=e257]: digital
+              - generic [ref=e258]: illustration
+              - generic [ref=e259]: "+1"
+  - generic [ref=e261]:
+    - img [ref=e263]
+    - button "Open Tanstack query devtools" [ref=e312] [cursor=pointer]:
+      - img [ref=e313]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e367] [cursor=pointer]:
+    - img [ref=e368]
+  - alert [ref=e372]
+```
