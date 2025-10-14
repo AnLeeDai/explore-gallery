@@ -74,10 +74,7 @@ export const galleryApi = {
   },
 
   createUser: async (userData: Omit<User, "id">): Promise<User> => {
-    const response = await instance.post("/users", {
-      ...userData,
-      id: Date.now(),
-    });
+    const response = await instance.post("/users", userData);
     return response.data;
   },
 

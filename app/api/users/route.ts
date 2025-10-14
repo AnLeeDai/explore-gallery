@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { User } from "@/types/gallery";
-import { getUsers } from "@/lib/mock-data";
+import { getUsers, addUser } from "@/lib/mock-data";
 
 export async function GET(request: NextRequest) {
   try {
@@ -71,11 +71,17 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const userData = await request.json();
+    
+    const existingUsers = getUsers();
+    const maxId = existingUsers.length > 0 ? Math.max(...existingUsers.map(u => u.id)) : 0;
+    const newId = maxId + 1;
 
     const newUser: User = {
       ...userData,
-      id: Date.now(),
+      id: newId,
     };
+
+    addUser(newUser);
 
     return NextResponse.json(newUser, { status: 201 });
   } catch {

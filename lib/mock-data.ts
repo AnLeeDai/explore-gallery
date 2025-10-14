@@ -148,13 +148,25 @@ export const users: User[] = [
 ]
 
 export function getUsers() {
-  return users
+  return getAllUsers()
 }
 
-export function getUserById(id: number) {
-  return users.find(user => user.id === id)
+const dynamicUsers: User[] = []
+
+export function addUser(user: User): void {
+  dynamicUsers.push(user)
+}
+
+export function getAllUsers(): User[] {
+  return [...users, ...dynamicUsers]
+}
+
+export function getUserById(id: number): User | undefined {
+  const allUsers = getAllUsers()
+  return allUsers.find(user => user.id === id)
 }
 
 export function getCategories() {
-  return [...new Set(users.map(user => user.category).filter(Boolean))] as string[]
+  const allUsers = getAllUsers()
+  return [...new Set(allUsers.map(user => user.category).filter(Boolean))] as string[]
 }
