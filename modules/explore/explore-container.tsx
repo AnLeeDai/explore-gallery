@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react";
 import { useExploreGallery } from "@/hooks/use-explore-gallery";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import Filter from "./filter";
-import Sort from "./sort";
 import UserCard from "@/components/user-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -86,17 +85,13 @@ export default function ExploreContainer() {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div className="flex-1">
-          <Filter
-            filters={filters}
-            onSearchChange={updateSearch}
-            onCategoryChange={updateCategory}
-          />
-        </div>
-        <div>
-          <Sort sortBy={filters.sort} onSortChange={updateSort} />
-        </div>
+      <div className="w-full">
+        <Filter
+          filters={filters}
+          onSearchChange={updateSearch}
+          onCategoryChange={updateCategory}
+          onSortChange={updateSort}
+        />
       </div>
 
       {isLoading ? (

@@ -22,7 +22,6 @@ const sortOptions = [
 export default function Sort({ sortBy = 'trending', onSortChange }: SortProps) {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Sort by:</span>
       <Select value={sortBy} onValueChange={onSortChange}>
         <SelectTrigger className="w-32 h-10">
           <SelectValue />

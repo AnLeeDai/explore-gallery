@@ -16,13 +16,22 @@ export async function GET(request: NextRequest) {
     let users: User[] = [...getUsers()];
 
     if (search) {
-      const searchLower = search.toLowerCase();
-      users = users.filter(
-        (user) =>
-          user.first_name.toLowerCase().includes(searchLower) ||
-          user.last_name.toLowerCase().includes(searchLower) ||
-          user.email.toLowerCase().includes(searchLower)
-      );
+      const searchQuery = search.trim().toLowerCase();
+      if (searchQuery) {
+        const queryWords = searchQuery.split(/\s+/).filter(word => word.length > 0);
+        
+        users = users.filter((user) => {
+          const firstName = user.first_name.toLowerCase();
+          const lastName = user.last_name.toLowerCase();
+          const fullName = `${firstName} ${lastName}`;
+          
+          return queryWords.every(word => 
+            firstName.includes(word) || 
+            lastName.includes(word) || 
+            fullName.includes(word)
+          );
+        });
+      }
     }
 
     if (category && category !== "all") {

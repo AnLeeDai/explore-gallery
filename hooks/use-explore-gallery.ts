@@ -4,10 +4,6 @@ import { GalleryFilters } from "@/types/gallery";
 import { galleryInfiniteOptions } from "@/routers/gallery";
 import { useDebounce } from "./use-debounce";
 
-function normalizeText(text: string): string {
-  return text.toLowerCase().replace(/\s+/g, "");
-}
-
 export function useExploreGallery(initialFilters: GalleryFilters = {}) {
   const [filters, setFilters] = useState<GalleryFilters>(initialFilters);
   const debouncedSearch = useDebounce(filters.search, 300);
@@ -29,25 +25,7 @@ export function useExploreGallery(initialFilters: GalleryFilters = {}) {
 
   const allUsers = data?.pages.flatMap((page) => page.data) || [];
 
-  let processedUsers = allUsers;
-
-  if (debouncedSearch) {
-    const normalizedSearch = normalizeText(debouncedSearch);
-    processedUsers = allUsers.filter(
-      (user) => {
-        const normalizedFirstName = normalizeText(user.first_name);
-        const normalizedLastName = normalizeText(user.last_name);
-        const normalizedFullName = normalizeText(`${user.first_name} ${user.last_name}`);
-        
-        return (
-          normalizedFirstName.includes(normalizedSearch) ||
-          normalizedLastName.includes(normalizedSearch) ||
-          normalizedFullName.includes(normalizedSearch)
-        );
-      }
-    );
-  }
-
+  const processedUsers = allUsers;
   let sortedUsers = processedUsers;
   if (filters.sort) {
     switch (filters.sort) {
@@ -55,7 +33,9 @@ export function useExploreGallery(initialFilters: GalleryFilters = {}) {
         sortedUsers = [...processedUsers].sort((a, b) => b.id - a.id);
         break;
       case "trending":
-        sortedUsers = [...processedUsers].sort((a, b) => (b.likes || 0) - (a.likes || 0));
+        sortedUsers = [...processedUsers].sort(
+          (a, b) => (b.likes || 0) - (a.likes || 0)
+        );
         break;
       case "oldest":
         sortedUsers = [...processedUsers].sort((a, b) => a.id - b.id);

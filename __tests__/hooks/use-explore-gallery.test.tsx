@@ -147,10 +147,10 @@ describe("useExploreGallery", () => {
     });
   });
 
-  it("filters users by search term ignoring spaces in input", async () => {
+  it("handles search with extra spaces", async () => {
     const { result } = renderHook(() =>
       useExploreGallery({
-        search: "j a n e",
+        search: "  john   doe  ",
         category: "all",
         sort: "latest",
       })
@@ -158,7 +158,39 @@ describe("useExploreGallery", () => {
 
     await waitFor(() => {
       expect(result.current.users).toHaveLength(1);
-      expect(result.current.users[0].first_name).toBe("Jane");
+      expect(result.current.users[0].first_name).toBe("John");
+      expect(result.current.users[0].last_name).toBe("Doe");
+    });
+  });
+
+  it("handles partial search with spaces", async () => {
+    const { result } = renderHook(() =>
+      useExploreGallery({
+        search: "john ",
+        category: "all",
+        sort: "latest",
+      })
+    );
+
+    await waitFor(() => {
+      expect(result.current.users).toHaveLength(1);
+      expect(result.current.users[0].first_name).toBe("John");
+    });
+  });
+
+  it("filters users by multiple words in any order", async () => {
+    const { result } = renderHook(() =>
+      useExploreGallery({
+        search: "doe john",
+        category: "all",
+        sort: "latest",
+      })
+    );
+
+    await waitFor(() => {
+      expect(result.current.users).toHaveLength(1);
+      expect(result.current.users[0].first_name).toBe("John");
+      expect(result.current.users[0].last_name).toBe("Doe");
     });
   });
 
