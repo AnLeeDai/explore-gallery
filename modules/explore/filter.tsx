@@ -1,5 +1,6 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -9,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { GalleryFilters } from "@/types/gallery";
+import { galleryApi } from "@/routers/gallery";
 
 interface FilterProps {
   filters: GalleryFilters;
@@ -16,39 +18,42 @@ interface FilterProps {
   onCategoryChange: (category: string) => void;
 }
 
-const categories = [
-  { value: "all", label: "All Categories" },
-  { value: "people", label: "People" },
-  { value: "nature", label: "Nature" },
-  { value: "technology", label: "Technology" },
-  { value: "art", label: "Art" },
-];
-
 export default function Filter({
   filters,
   onSearchChange,
   onCategoryChange,
 }: FilterProps) {
+  const { data: categories = [], isLoading: categoriesLoading } = useQuery({
+    queryKey: ['categories'],
+    queryFn: galleryApi.getCategories,
+  });
+
+  const allCategories = [
+    { value: "all", label: "All Categories" },
+    ...categories.map(cat => ({ value: cat, label: cat.charAt(0).toUpperCase() + cat.slice(1) }))
+  ];
+
   return (
-    <div className="flex flex-col sm:flex-row gap-4 mb-6">
+    <div className="flex flex-col sm:flex-row gap-4">
       <div className="flex-1">
         <Input
-          placeholder="Search by name or email..."
+          placeholder="Search by name, email or author..."
           value={filters.search || ""}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full"
+          className="h-10"
         />
       </div>
       <div className="w-full sm:w-48">
         <Select
           value={filters.category || "all"}
           onValueChange={onCategoryChange}
+          disabled={categoriesLoading}
         >
-          <SelectTrigger>
+          <SelectTrigger className="h-10">
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent>
-            {categories.map((category) => (
+            {allCategories.map((category) => (
               <SelectItem key={category.value} value={category.value}>
                 {category.label}
               </SelectItem>

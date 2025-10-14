@@ -4,6 +4,18 @@ export interface User {
   first_name: string;
   last_name: string;
   avatar: string;
+  category?: string;
+  tags?: string[];
+  author?: string;
+  likes?: number;
+  description?: string;
+}
+
+export interface UserDetail extends User {
+  likes: number;
+  isLiked: boolean;
+  isSaved: boolean;
+  createdAt?: string;
 }
 
 export interface GalleryResponse {
@@ -12,22 +24,12 @@ export interface GalleryResponse {
   total: number;
   total_pages: number;
   data: User[];
-  support: {
-    url: string;
-    text: string;
-  };
-  _meta: {
-    powered_by: string;
-    upgrade_url: string;
-    docs_url: string;
-    template_gallery: string;
-  };
 }
 
 export interface GalleryFilters {
   search?: string;
   category?: string;
-  sortBy?: 'trending' | 'latest';
+  sort?: 'trending' | 'latest' | 'oldest';
 }
 
 export interface GalleryParams extends GalleryFilters {

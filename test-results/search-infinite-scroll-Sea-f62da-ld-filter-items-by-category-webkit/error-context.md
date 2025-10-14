@@ -1,0 +1,159 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Explore Gallery" [ref=e4]:
+        - /url: /
+        - generic [ref=e5]: Explore Gallery
+      - navigation [ref=e6]:
+        - link "Explore" [ref=e7]:
+          - /url: /
+          - img [ref=e8]
+          - generic [ref=e13]: Explore
+        - link "Create Item" [ref=e14]:
+          - /url: /create
+          - img [ref=e15]
+          - generic [ref=e16]: Create Item
+      - button "Toggle theme" [ref=e18]:
+        - img
+        - generic [ref=e19]: Toggle theme
+  - main [ref=e20]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "Explore Gallery" [level=1] [ref=e24]
+        - paragraph [ref=e25]: Discover amazing people and their profiles
+      - generic [ref=e26]:
+        - generic [ref=e28]:
+          - textbox "Search by name, email or author..." [ref=e30]
+          - combobox [active] [ref=e32]:
+            - generic: Photography
+            - img
+        - generic [ref=e34]:
+          - generic [ref=e35]: "Sort by:"
+          - combobox [ref=e36]:
+            - generic: Trending
+            - img
+      - generic [ref=e37]:
+        - generic [ref=e38] [cursor=pointer]:
+          - img "George Bluth" [ref=e41]
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "George Bluth" [level=3] [ref=e44]
+              - paragraph [ref=e45]: by George Bluth
+            - paragraph [ref=e46]: Professional photographer specializing in portrait and studio photography. With over 10 years of experience, George creates stunning visual narratives that capture the essence of his subjects.
+            - generic [ref=e47]:
+              - generic [ref=e48]: photography
+              - generic [ref=e49]:
+                - img [ref=e50]
+                - text: "43"
+            - generic [ref=e52]:
+              - generic [ref=e53]: portrait
+              - generic [ref=e54]: professional
+              - generic [ref=e55]: "+1"
+        - generic [ref=e56] [cursor=pointer]:
+          - img "Eve Holt" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "Eve Holt" [level=3] [ref=e62]
+              - paragraph [ref=e63]: by Eve Holt
+            - paragraph [ref=e64]: Street photographer documenting urban life and culture. Eve's candid shots capture the authentic moments of city living and human connections.
+            - generic [ref=e65]:
+              - generic [ref=e66]: photography
+              - generic [ref=e67]:
+                - img [ref=e68]
+                - text: "29"
+            - generic [ref=e70]:
+              - generic [ref=e71]: street
+              - generic [ref=e72]: urban
+              - generic [ref=e73]: "+1"
+        - generic [ref=e74] [cursor=pointer]:
+          - img "Michael Lawson" [ref=e77]
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - heading "Michael Lawson" [level=3] [ref=e80]
+              - paragraph [ref=e81]: by Michael Lawson
+            - paragraph [ref=e82]: Architectural photographer with an eye for geometric compositions and minimal design. Michael's work highlights the beauty of modern and historic architecture.
+            - generic [ref=e83]:
+              - generic [ref=e84]: photography
+              - generic [ref=e85]:
+                - img [ref=e86]
+                - text: "33"
+            - generic [ref=e88]:
+              - generic [ref=e89]: architecture
+              - generic [ref=e90]: geometric
+              - generic [ref=e91]: "+1"
+        - generic [ref=e92] [cursor=pointer]:
+          - img "Byron Fields" [ref=e95]
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - heading "Byron Fields" [level=3] [ref=e98]
+              - paragraph [ref=e99]: by Byron Fields
+            - paragraph [ref=e100]: Sports photographer capturing high-energy action shots and athletic moments. Byron's dynamic compositions freeze the excitement and intensity of competitive sports.
+            - generic [ref=e101]:
+              - generic [ref=e102]: photography
+              - generic [ref=e103]:
+                - img [ref=e104]
+                - text: "72"
+            - generic [ref=e106]:
+              - generic [ref=e107]: sports
+              - generic [ref=e108]: action
+              - generic [ref=e109]: "+1"
+        - generic [ref=e110] [cursor=pointer]:
+          - img "David Chen" [ref=e113]
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - heading "David Chen" [level=3] [ref=e116]
+              - paragraph [ref=e117]: by David Chen
+            - paragraph [ref=e118]: Fashion and editorial photographer working with top brands and magazines. David's sophisticated style and attention to detail create compelling visual stories in commercial photography.
+            - generic [ref=e119]:
+              - generic [ref=e120]: photography
+              - generic [ref=e121]:
+                - img [ref=e122]
+                - text: "61"
+            - generic [ref=e124]:
+              - generic [ref=e125]: fashion
+              - generic [ref=e126]: editorial
+              - generic [ref=e127]: "+1"
+        - generic [ref=e128] [cursor=pointer]:
+          - img "Maria Garcia" [ref=e131]
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - heading "Maria Garcia" [level=3] [ref=e134]
+              - paragraph [ref=e135]: by Maria Garcia
+            - paragraph [ref=e136]: Wedding photographer specializing in capturing emotional moments and celebrations. Maria's warm and candid style preserves the joy and romance of special occasions.
+            - generic [ref=e137]:
+              - generic [ref=e138]: photography
+              - generic [ref=e139]:
+                - img [ref=e140]
+                - text: "76"
+            - generic [ref=e142]:
+              - generic [ref=e143]: wedding
+              - generic [ref=e144]: celebration
+              - generic [ref=e145]: "+1"
+        - generic [ref=e146] [cursor=pointer]:
+          - img "Robert Davis" [ref=e149]
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - heading "Robert Davis" [level=3] [ref=e152]
+              - paragraph [ref=e153]: by Robert Davis
+            - paragraph [ref=e154]: Film photographer working exclusively with vintage cameras and analog processes. Robert's nostalgic approach creates timeless images that celebrate the craft of traditional photography.
+            - generic [ref=e155]:
+              - generic [ref=e156]: photography
+              - generic [ref=e157]:
+                - img [ref=e158]
+                - text: "28"
+            - generic [ref=e160]:
+              - generic [ref=e161]: vintage
+              - generic [ref=e162]: film
+              - generic [ref=e163]: "+1"
+  - generic [ref=e165]:
+    - img [ref=e167]
+    - button "Open Tanstack query devtools" [ref=e235] [cursor=pointer]:
+      - img [ref=e236]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e309] [cursor=pointer]:
+    - img [ref=e310]
+  - alert [ref=e315]
+```

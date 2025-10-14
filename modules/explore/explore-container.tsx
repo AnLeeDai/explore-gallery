@@ -27,7 +27,7 @@ export default function ExploreContainer() {
     updateSort,
   } = useExploreGallery();
 
-  const { targetRef, isIntersecting } = useIntersectionObserver({
+  const { targetRef } = useIntersectionObserver({
     rootMargin: "500px",
     threshold: 0,
   });
@@ -36,20 +36,6 @@ export default function ExploreContainer() {
     setIsMounted(true);
   }, []);
 
-  // Auto load more when intersection observer triggers
-  useEffect(() => {
-    if (isMounted && isIntersecting && hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  }, [
-    isMounted,
-    isIntersecting,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-  ]);
-
-  // Backup scroll listener
   useEffect(() => {
     if (!isMounted) return;
 
@@ -73,24 +59,25 @@ export default function ExploreContainer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMounted, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
-  // Show loading state before mount to prevent hydration mismatch
   if (!isMounted) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="space-y-6">
-          <div>
-            <div className="h-8 bg-gray-200 rounded w-48 mb-2"></div>
-            <div className="h-4 bg-gray-100 rounded w-64"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="space-y-3">
-                <div className="aspect-square bg-gray-200 rounded-lg"></div>
-                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                <div className="h-3 bg-gray-100 rounded w-1/2"></div>
-              </div>
-            ))}
-          </div>
+      <div className="space-y-8">
+        <div className="space-y-2">
+          <Skeleton className="h-9 w-48" />
+          <Skeleton className="h-5 w-64" />
+        </div>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <Skeleton className="h-10 flex-1" />
+          <Skeleton className="h-10 w-32" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div key={index} className="space-y-3">
+              <Skeleton className="aspect-square w-full" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-3 w-1/2" />
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -98,103 +85,98 @@ export default function ExploreContainer() {
 
   if (isError) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <Alert variant="destructive">
-          <AlertDescription>
-            Failed to load gallery: {error?.message || "Unknown error"}
-          </AlertDescription>
-        </Alert>
-      </div>
+      <Alert variant="destructive">
+        <AlertDescription>
+          Failed to load gallery: {error?.message || "Unknown error"}
+        </AlertDescription>
+      </Alert>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8" suppressHydrationWarning>
-      <div className="space-y-6">
-        {/* Header */}
+    <div className="space-y-8" suppressHydrationWarning>
+      <div className="space-y-4">
+        <h1 className="text-3xl font-bold tracking-tight">Explore Gallery</h1>
+        <p className="text-lg text-muted-foreground">
+          Discover amazing people and their profiles
+        </p>
+      </div>
+
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div className="flex-1">
+          <Filter
+            filters={filters}
+            onSearchChange={updateSearch}
+            onCategoryChange={updateCategory}
+          />
+        </div>
         <div>
-          <h1 className="text-3xl font-bold mb-2">Explore Gallery</h1>
-          <p className="text-muted-foreground">
-            Discover amazing people and their profiles
+          <Sort sortBy={filters.sort} onSortChange={updateSort} />
+        </div>
+      </div>
+
+      {isLoading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div key={index} className="space-y-3">
+              <Skeleton className="aspect-square w-full" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-3 w-1/2" />
+            </div>
+          ))}
+        </div>
+      ) : users.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-16 text-center">
+          <p className="text-lg text-muted-foreground mb-2">
+            No users found matching your criteria.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Try adjusting your search or filters.
           </p>
         </div>
-
-        {/* Filters and Sort */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <div className="flex-1">
-            <Filter
-              filters={filters}
-              onSearchChange={updateSearch}
-              onCategoryChange={updateCategory}
-            />
-          </div>
-          <div>
-            <Sort sortBy={filters.sortBy} onSortChange={updateSort} />
-          </div>
-        </div>
-
-        {/* Gallery Grid */}
-        {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="space-y-3">
-                <Skeleton className="aspect-square w-full" />
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-3 w-1/2" />
-              </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {users.map((user) => (
+              <UserCard key={user.id} user={user} />
             ))}
           </div>
-        ) : users.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">
-              No users found matching your criteria.
-            </p>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {users.map((user) => (
-                <UserCard key={user.id} user={user} />
+
+          {isFetchingNextPage && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div key={`loading-${index}`} className="space-y-3">
+                  <Skeleton className="aspect-square w-full" />
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-3 w-1/2" />
+                </div>
               ))}
             </div>
+          )}
 
-            {/* Infinite Scroll Loading Skeletons */}
-            {isFetchingNextPage && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <div key={`loading-${index}`} className="space-y-3">
-                    <Skeleton className="aspect-square w-full" />
-                    <Skeleton className="h-4 w-3/4" />
-                    <Skeleton className="h-3 w-1/2" />
-                  </div>
-                ))}
+          <div
+            ref={targetRef}
+            className="flex justify-center py-8 min-h-[50px]"
+          >
+            {hasNextPage && isFetchingNextPage && (
+              <div className="flex items-center gap-2">
+                <Skeleton className="h-6 w-6 rounded-full animate-pulse" />
+                <span className="text-sm text-muted-foreground">
+                  Loading more...
+                </span>
               </div>
             )}
-
-            {/* Infinite Scroll Trigger */}
-            <div
-              ref={targetRef}
-              className="flex justify-center py-8 min-h-[50px]"
-            >
-              {hasNextPage && isFetchingNextPage && (
-                <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                  <span className="text-sm text-muted-foreground">
-                    Loading more...
-                  </span>
-                </div>
-              )}
-              {!hasNextPage && users.length > 0 && users.length > 0 && (
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">
-                    You&apos;ve reached the end!
-                  </p>
-                </div>
-              )}
-            </div>
-          </>
-        )}
-      </div>
+            {!hasNextPage && users.length > 0 && (
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground">
+                  You&apos;ve reached the end!
+                </p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+      
       {isMounted && <ScrollToTop />}
     </div>
   );

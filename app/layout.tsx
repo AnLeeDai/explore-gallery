@@ -39,13 +39,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <HeaderWrapper />
-
-            <Providers>
-              <main className="min-h-screen bg-background font-sans antialiased max-w-screen-2xl mx-auto px-4 mt-14">
+          <Providers>
+            <main className="min-h-screen bg-background font-sans antialiased">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {children}
-              </main>
-            </Providers>
-            <Toaster richColors position="top-right" />
+              </div>
+            </main>
+          </Providers>
+          <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
     </html>

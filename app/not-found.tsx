@@ -10,7 +10,7 @@ import { Home, ArrowLeft, Search } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="w-full max-w-lg">
+      <Card className="w-full max-w-lg py-4">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <Badge variant="outline" className="text-6xl font-bold px-6 py-3">
@@ -25,12 +25,13 @@ export default function NotFound() {
               Sorry, we couldn&apos;t find the page you&apos;re looking for.
             </p>
             <p className="text-sm mt-2">
-              The page might have been moved, deleted, or you entered the wrong URL.
+              The page might have been moved, deleted, or you entered the wrong
+              URL.
             </p>
           </div>
-          
+
           <Separator />
-          
+
           <div className="flex flex-col sm:flex-row gap-3">
             <Button asChild className="flex-1">
               <Link href="/">
@@ -38,12 +39,16 @@ export default function NotFound() {
                 Go Home
               </Link>
             </Button>
-            <Button variant="outline" onClick={() => window.history.back()} className="flex-1">
+            <Button
+              variant="outline"
+              onClick={() => window.history.back()}
+              className="flex-1"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Go Back
             </Button>
           </div>
-          
+
           <div className="text-center">
             <Button variant="ghost" asChild className="w-full">
               <Link href="/">

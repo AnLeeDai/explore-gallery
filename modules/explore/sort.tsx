@@ -9,21 +9,22 @@ import {
 } from "@/components/ui/select";
 
 interface SortProps {
-  sortBy?: 'trending' | 'latest';
-  onSortChange: (sortBy: 'trending' | 'latest') => void;
+  sortBy?: 'trending' | 'latest' | 'oldest';
+  onSortChange: (sortBy: 'trending' | 'latest' | 'oldest') => void;
 }
 
 const sortOptions = [
   { value: "trending", label: "Trending" },
   { value: "latest", label: "Latest" },
+  { value: "oldest", label: "Oldest" },
 ];
 
 export default function Sort({ sortBy = 'trending', onSortChange }: SortProps) {
   return (
-    <div className="flex items-center gap-2 mb-6">
-      <span className="text-sm font-medium">Sort by:</span>
+    <div className="flex items-center gap-3">
+      <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Sort by:</span>
       <Select value={sortBy} onValueChange={onSortChange}>
-        <SelectTrigger className="w-40">
+        <SelectTrigger className="w-32 h-10">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

@@ -14,7 +14,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (!isMounted) return;
-    
+
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
@@ -31,7 +31,7 @@ export default function ScrollToTop() {
   }, [isMounted]);
 
   const scrollToTop = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -47,7 +47,7 @@ export default function ScrollToTop() {
     <Button
       onClick={scrollToTop}
       size="icon"
-      className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+      className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg"
       aria-label="Scroll to top"
     >
       <ArrowUp className="h-4 w-4" />

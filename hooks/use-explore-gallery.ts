@@ -23,26 +23,34 @@ export function useExploreGallery(initialFilters: GalleryFilters = {}) {
     })
   );
 
-
-
-  // Flatten all pages data - keep it simple for infinite scroll
   const allUsers = data?.pages.flatMap((page) => page.data) || [];
 
-  // Apply minimal client-side filtering only if search exists
   let processedUsers = allUsers;
-  
+
   if (debouncedSearch) {
     const searchLower = debouncedSearch.toLowerCase();
-    processedUsers = allUsers.filter((user) =>
-      user.first_name.toLowerCase().includes(searchLower) ||
-      user.last_name.toLowerCase().includes(searchLower) ||
-      user.email.toLowerCase().includes(searchLower)
+    processedUsers = allUsers.filter(
+      (user) =>
+        user.first_name.toLowerCase().includes(searchLower) ||
+        user.last_name.toLowerCase().includes(searchLower) ||
+        user.email.toLowerCase().includes(searchLower)
     );
   }
 
-  // Apply sorting
-  const sortedUsers =
-    filters.sortBy === "latest" ? [...processedUsers].reverse() : processedUsers;
+  let sortedUsers = processedUsers;
+  if (filters.sort) {
+    switch (filters.sort) {
+      case "latest":
+        sortedUsers = [...processedUsers].sort((a, b) => b.id - a.id);
+        break;
+      case "trending":
+        sortedUsers = [...processedUsers].sort((a, b) => (b.likes || 0) - (a.likes || 0));
+        break;
+      case "oldest":
+        sortedUsers = [...processedUsers].sort((a, b) => a.id - b.id);
+        break;
+    }
+  }
 
   const updateFilters = (newFilters: Partial<GalleryFilters>) => {
     setFilters((prev) => ({ ...prev, ...newFilters }));
@@ -56,8 +64,8 @@ export function useExploreGallery(initialFilters: GalleryFilters = {}) {
     setFilters((prev) => ({ ...prev, category }));
   };
 
-  const updateSort = (sortBy: "trending" | "latest") => {
-    setFilters((prev) => ({ ...prev, sortBy }));
+  const updateSort = (sort: "trending" | "latest" | "oldest") => {
+    setFilters((prev) => ({ ...prev, sort }));
   };
 
   return {

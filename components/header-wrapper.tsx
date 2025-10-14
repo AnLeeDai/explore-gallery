@@ -37,26 +37,23 @@ export function HeaderWrapper() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold text-lg">Explore Gallery</span>
-          </Link>
-        </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center space-x-2">
+          <span className="font-bold text-xl tracking-tight">Explore Gallery</span>
+        </Link>
 
-        {/* Desktop Navigation - Centered */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={cn(
-                "flex items-center space-x-2 text-sm font-medium transition-colors hover:text-foreground/80",
+                "flex items-center space-x-2 text-sm font-medium transition-colors hover:text-foreground",
+                "px-3 py-2 rounded-md hover:bg-accent/50",
                 mounted && pathname === item.href
-                  ? "text-foreground"
-                  : "text-foreground/60"
+                  ? "text-foreground bg-accent"
+                  : "text-muted-foreground"
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -65,31 +62,32 @@ export function HeaderWrapper() {
           ))}
         </nav>
 
-        {/* Right side - Mode Toggle */}
         <div className="flex items-center space-x-2">
-          {/* Mobile Menu */}
+          <ModeToggle />
+          
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="h-9 w-9">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <SheetHeader>
-                  <SheetTitle>Navigation Menu</SheetTitle>
+              <SheetContent side="right" className="w-72 sm:w-80">
+                <SheetHeader className="text-left">
+                  <SheetTitle className="text-lg font-semibold">Navigation</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-2 mt-6">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        "flex items-center space-x-3 text-base font-medium transition-colors hover:text-foreground/80 p-2 rounded-md hover:bg-accent",
+                        "flex items-center space-x-3 text-base font-medium transition-colors",
+                        "px-3 py-3 rounded-lg hover:bg-accent",
                         mounted && pathname === item.href
                           ? "text-foreground bg-accent"
-                          : "text-foreground/60"
+                          : "text-muted-foreground hover:text-foreground"
                       )}
                     >
                       <item.icon className="h-5 w-5" />
@@ -100,7 +98,6 @@ export function HeaderWrapper() {
               </SheetContent>
             </Sheet>
           </div>
-          <ModeToggle />
         </div>
       </div>
     </header>

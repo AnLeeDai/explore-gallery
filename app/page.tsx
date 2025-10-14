@@ -10,10 +10,8 @@ export default function Home() {
   void queryClient.prefetchInfiniteQuery(galleryInfiniteOptions());
 
   return (
-    <main className="space-y-8">
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <ExploreContainer />
-      </HydrationBoundary>
-    </main>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ExploreContainer />
+    </HydrationBoundary>
   );
 }
