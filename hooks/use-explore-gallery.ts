@@ -4,6 +4,10 @@ import { GalleryFilters } from "@/types/gallery";
 import { galleryInfiniteOptions } from "@/routers/gallery";
 import { useDebounce } from "./use-debounce";
 
+function normalizeText(text: string): string {
+  return text.toLowerCase().replace(/\s+/g, "");
+}
+
 export function useExploreGallery(initialFilters: GalleryFilters = {}) {
   const [filters, setFilters] = useState<GalleryFilters>(initialFilters);
   const debouncedSearch = useDebounce(filters.search, 300);
@@ -28,12 +32,19 @@ export function useExploreGallery(initialFilters: GalleryFilters = {}) {
   let processedUsers = allUsers;
 
   if (debouncedSearch) {
-    const searchLower = debouncedSearch.toLowerCase();
+    const normalizedSearch = normalizeText(debouncedSearch);
     processedUsers = allUsers.filter(
-      (user) =>
-        user.first_name.toLowerCase().includes(searchLower) ||
-        user.last_name.toLowerCase().includes(searchLower) ||
-        user.email.toLowerCase().includes(searchLower)
+      (user) => {
+        const normalizedFirstName = normalizeText(user.first_name);
+        const normalizedLastName = normalizeText(user.last_name);
+        const normalizedFullName = normalizeText(`${user.first_name} ${user.last_name}`);
+        
+        return (
+          normalizedFirstName.includes(normalizedSearch) ||
+          normalizedLastName.includes(normalizedSearch) ||
+          normalizedFullName.includes(normalizedSearch)
+        );
+      }
     );
   }
 

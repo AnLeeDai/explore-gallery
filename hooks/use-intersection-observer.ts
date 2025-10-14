@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 interface UseIntersectionObserverOptions {
   root?: Element | null;
   rootMargin?: string;
   threshold?: number | number[];
+  onIntersect?: () => void;
 }
 
 export function useIntersectionObserver(
@@ -11,11 +12,18 @@ export function useIntersectionObserver(
 ) {
   const targetRef = useRef<HTMLDivElement>(null);
 
+  const handleIntersect = useCallback((entries: IntersectionObserverEntry[]) => {
+    const [entry] = entries;
+    if (entry && entry.isIntersecting && options.onIntersect) {
+      options.onIntersect();
+    }
+  }, [options]);
+
   useEffect(() => {
     const target = targetRef.current;
     if (!target) return;
 
-    const observer = new IntersectionObserver(([]) => {}, {
+    const observer = new IntersectionObserver(handleIntersect, {
       root: options.root,
       rootMargin: options.rootMargin || "100px",
       threshold: options.threshold || 0,
@@ -26,7 +34,7 @@ export function useIntersectionObserver(
     return () => {
       observer.unobserve(target);
     };
-  }, [options.root, options.rootMargin, options.threshold]);
+  }, [handleIntersect, options.root, options.rootMargin, options.threshold]);
 
   return { targetRef };
 }

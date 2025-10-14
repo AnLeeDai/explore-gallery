@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useExploreGallery } from "@/hooks/use-explore-gallery";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import Filter from "./filter";
@@ -27,37 +27,21 @@ export default function ExploreContainer() {
     updateSort,
   } = useExploreGallery();
 
+  const handleLoadMore = useCallback(() => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
   const { targetRef } = useIntersectionObserver({
-    rootMargin: "500px",
+    rootMargin: "200px",
     threshold: 0,
+    onIntersect: handleLoadMore,
   });
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const handleScroll = () => {
-      const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight;
-      const clientHeight =
-        document.documentElement.clientHeight || window.innerHeight;
-
-      const scrolledToBottom =
-        Math.ceil(scrollTop + clientHeight) >= scrollHeight - 100;
-
-      if (scrolledToBottom && hasNextPage && !isFetchingNextPage) {
-        fetchNextPage();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMounted, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   if (!isMounted) {
     return (

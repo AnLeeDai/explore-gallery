@@ -131,6 +131,51 @@ describe("useExploreGallery", () => {
     });
   });
 
+  it("filters users by search term ignoring spaces", async () => {
+    const { result } = renderHook(() =>
+      useExploreGallery({
+        search: "john doe",
+        category: "all",
+        sort: "latest",
+      })
+    );
+
+    await waitFor(() => {
+      expect(result.current.users).toHaveLength(1);
+      expect(result.current.users[0].first_name).toBe("John");
+      expect(result.current.users[0].last_name).toBe("Doe");
+    });
+  });
+
+  it("filters users by search term ignoring spaces in input", async () => {
+    const { result } = renderHook(() =>
+      useExploreGallery({
+        search: "j a n e",
+        category: "all",
+        sort: "latest",
+      })
+    );
+
+    await waitFor(() => {
+      expect(result.current.users).toHaveLength(1);
+      expect(result.current.users[0].first_name).toBe("Jane");
+    });
+  });
+
+  it("does not filter by email - only searches by name", async () => {
+    const { result } = renderHook(() =>
+      useExploreGallery({
+        search: "john@example.com",
+        category: "all",
+        sort: "latest",
+      })
+    );
+
+    await waitFor(() => {
+      expect(result.current.users).toHaveLength(0);
+    });
+  });
+
   it("sorts users by likes (trending)", () => {
     const { result } = renderHook(() =>
       useExploreGallery({

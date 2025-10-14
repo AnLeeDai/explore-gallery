@@ -24,20 +24,23 @@ export default function Filter({
   onCategoryChange,
 }: FilterProps) {
   const { data: categories = [], isLoading: categoriesLoading } = useQuery({
-    queryKey: ['categories'],
+    queryKey: ["categories"],
     queryFn: galleryApi.getCategories,
   });
 
   const allCategories = [
     { value: "all", label: "All Categories" },
-    ...categories.map(cat => ({ value: cat, label: cat.charAt(0).toUpperCase() + cat.slice(1) }))
+    ...categories.map((cat) => ({
+      value: cat,
+      label: cat.charAt(0).toUpperCase() + cat.slice(1),
+    })),
   ];
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <div className="flex-1">
         <Input
-          placeholder="Search by name, email or author..."
+          placeholder="Search by name..."
           value={filters.search || ""}
           onChange={(e) => onSearchChange(e.target.value)}
           className="h-10"

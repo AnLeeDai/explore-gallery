@@ -13,7 +13,7 @@ export const galleryInfiniteOptions = (filters: GalleryFilters = {}) =>
     queryFn: async ({ pageParam = 1 }) => {
       const searchParams = new URLSearchParams();
       searchParams.set("_page", pageParam.toString());
-      searchParams.set("_limit", "12");
+      searchParams.set("_limit", "4");
 
       if (filters.search) {
         searchParams.set("search", filters.search);
